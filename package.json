@@ -1,0 +1,23 @@
+{
+  "name": "server-abc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "server-abc",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "fast-two-sms": "^3.0.0",
+    "html-pdf": "^3.0.1",
+    "mongoose": "^6.2.2",
+    "path": "^0.12.7",
+    "pdfkit": "^0.13.0",
+    "razorpay": "^2.8.0"
+  }
+}
