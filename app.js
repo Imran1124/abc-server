@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 dotenv.config();
 app.use(cors());
-require('./src/db/conn');
+require('./db/conn');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
@@ -15,9 +15,9 @@ app.use(express.static(__dirname + '/uploads/'));
 
 const PORT = process.env.PORT || 3000
 
-app.use('/razorpay', require('./src/routes/razorpar'));
-app.use('/card', require('./src/routes/applyCard'));
-app.use('/sms', require('./src/routes/smsRoutes'));
+app.use('/razorpay', require('./routes/razorpar'));
+app.use('/card', require('./routes/applyCard'));
+app.use('/sms', require('./routes/smsRoutes'));
 
 app.get("/", (req, res) => {
     res.send("Hello says the server!");
