@@ -1,13 +1,14 @@
 {
   "name": "server-abc",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
+  "keywords": [],
+  "description": "",
   "dependencies": {
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
@@ -16,6 +17,7 @@
     "fast-two-sms": "^3.0.0",
     "html-pdf": "^3.0.1",
     "mongoose": "^6.2.2",
+    "nodemon": "^2.0.15",
     "path": "^0.12.7",
     "razorpay": "^2.8.0"
   }
