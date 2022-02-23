@@ -8,7 +8,7 @@ module.exports = ({ name, dateofbirth, email, mobileno, src }) => {
           <title>PDF Result Template</title>
           <style>
              .invoice-box {
-             max-width: 700px;
+             max-width: 800px;
              margin: auto;
              padding: 30px;
              border: 1px solid grey;
@@ -86,7 +86,7 @@ module.exports = ({ name, dateofbirth, email, mobileno, src }) => {
                    <td colspan="2">
                       <table style="border-bottom: 4px solid #330000">
                          <tr>
-                            <td class="title"><img  src="http://localhost:3002/abc.png"
+                            <td class="title"><img  src="https://server-abc.herokuapp.com/abc.png"
                                style="width:100%; max-width:160px;"></td>
                             <td>
                               Date: ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}`}
@@ -100,12 +100,12 @@ module.exports = ({ name, dateofbirth, email, mobileno, src }) => {
                       <table>
                          <tr>
                             <td>
-                               <h1>Name: ${name}</h1>
+                               <h2>Name: ${name}</h2>
                                <h3>Date of birth: ${dateofbirth}</h3>
                             </td>
                             <td>
                                <img src=${src}
-                               style="width:100%; max-width:150px;">
+                               style="width:100%; max-width:125px;">
                             </td>
                          </tr>
                       </table>
