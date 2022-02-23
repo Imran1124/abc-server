@@ -100,12 +100,12 @@ module.exports = ({ name, dateofbirth, email, mobileno, src }) => {
                       <table>
                          <tr>
                             <td>
-                               <h2>Name: ${name}</h2>
-                               <h3>Date of birth: ${dateofbirth}</h3>
+                               <h3>Name: ${name}</h3>
+                               <h4>Date of birth: ${dateofbirth}</h4>
                             </td>
                             <td>
                                <img src=${src}
-                               style="width:100%; max-width:125px;">
+                               style="width:100%; max-width:120px;">
                             </td>
                          </tr>
                       </table>
