@@ -33,7 +33,7 @@ const applyCardSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    mariatalstatus: {
+    maritalstatus: {
         type: String,
         required: true
     },

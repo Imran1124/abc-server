@@ -2,6 +2,7 @@ const router = require('express').Router();
 const applyCard = require('../models/applyCardSchema');
 const cardSchema = require('../models/generateCardSchema');
 const pdf = require('html-pdf');
+const qrCode = require('qrcode');
 
 const pdfTemplate = require('../utils/templates');
 
@@ -25,7 +26,7 @@ router.post('/apply', async (req, res) => {
         fathername,
         language,
         gender,
-        mariatalstatus,
+        maritalstatus,
         caddress,
         paddress,
         education,
@@ -48,7 +49,7 @@ router.post('/apply', async (req, res) => {
         fathername,
         language,
         gender,
-        mariatalstatus,
+        maritalstatus,
         caddress,
         paddress,
         education,
@@ -73,9 +74,9 @@ router.post('/apply', async (req, res) => {
 });
 
 router.post('/create-pdf', async (req, res) => {
-    try {
-        const { mobileno } = req.body;
-        pdf.create(pdfTemplate(req.body), {}).toFile(`uploads/${mobileno}.pdf`, async (err) => {
+    const { name, dateofbirth, email, mobileno, url } = req.body;
+    qrCode.toDataURL(url, (er, src) => {
+        pdf.create(pdfTemplate({ name, dateofbirth, email, mobileno, src }), {}).toFile(`uploads/${mobileno}.pdf`, async (err) => {
             if (err) {
                 return res.status(400).json({ message: 'faild' });
             }
@@ -91,9 +92,8 @@ router.post('/create-pdf', async (req, res) => {
                 res.status(400).json({ message: 'error' });
             }
         });
-    } catch (error) {
-        res.status(400).json(error);
-    }
+
+    });
 });
 
 router.get('/read/:id', async (req, res) => {

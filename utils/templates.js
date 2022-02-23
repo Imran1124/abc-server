@@ -1,6 +1,6 @@
-module.exports = ({ name, dateofbirth, email, mobileno }) => {
-    const today = new Date();
-    return `
+module.exports = ({ name, dateofbirth, email, mobileno, src }) => {
+   const today = new Date();
+   return `
     <!doctype html>
     <html>
        <head>
@@ -8,11 +8,11 @@ module.exports = ({ name, dateofbirth, email, mobileno }) => {
           <title>PDF Result Template</title>
           <style>
              .invoice-box {
-             max-width: 800px;
+             max-width: 700px;
              margin: auto;
              padding: 30px;
-             border: 1px solid #eee;
-             box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+             border: 1px solid grey;
+             box-shadow: 0 0 10px rgba(0, 0, 0, .20);
              font-size: 16px;
              line-height: 24px;
              font-family: 'Helvetica Neue', 'Helvetica',
@@ -81,15 +81,15 @@ module.exports = ({ name, dateofbirth, email, mobileno }) => {
        </head>
        <body>
           <div class="invoice-box">
-             <table cellpadding="0" cellspacing="0">
+               <table cellpadding="0" cellspacing="0">
                 <tr class="top">
                    <td colspan="2">
-                      <table>
+                      <table style="border-bottom: 4px solid #330000">
                          <tr>
-                            <td class="title"><img  src="https://i2.wp.com/cleverlogos.co/wp-content/uploads/2018/05/reciepthound_1.jpg?fit=800%2C600&ssl=1"
-                               style="width:100%; max-width:156px;"></td>
+                            <td class="title"><img  src="http://localhost:3002/abc.png"
+                               style="width:100%; max-width:160px;"></td>
                             <td>
-                               Datum: ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`}
+                              Date: ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}`}
                             </td>
                          </tr>
                       </table>
@@ -100,29 +100,22 @@ module.exports = ({ name, dateofbirth, email, mobileno }) => {
                       <table>
                          <tr>
                             <td>
-                               Customer name: ${name}
+                               <h1>Name: ${name}</h1>
+                               <h3>Date of birth: ${dateofbirth}</h3>
                             </td>
                             <td>
-                               Receipt number: ${dateofbirth}
+                               <img src=${src}
+                               style="width:100%; max-width:150px;">
                             </td>
                          </tr>
                       </table>
                    </td>
                 </tr>
-                <tr class="heading">
-                   <td>Bought items:</td>
-                   <td>Price</td>
-                </tr>
-                <tr class="item">
-                   <td>First item:</td>
-                   <td>${mobileno}$</td>
-                </tr>
-                <tr class="item">
-                   <td>Second item:</td>
-                   <td>${email}$</td>
-                </tr>
              </table>
-            
+            <div style="background-color: #330000; color: white; padding: 10px; text-align: center;">
+             <span>Valid upto 1 year from created date</span>
+            </div>
+
           </div>
        </body>
     </html>
