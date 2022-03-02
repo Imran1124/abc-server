@@ -109,9 +109,9 @@ router.get('/read/:id', async (req, res) => {
 router.get('/cardlist/', async (req, res) => {
 
     const result = await applyCard.find({});
-    const { _id, name, email, mobileno, dateofbirth, gender } = result;
+    // const { _id, name, email, mobileno, dateofbirth, gender } = result[0];
     if (result) {
-        res.status(200).json({ _id, name, email, mobileno, dateofbirth, gender });
+        res.status(200).json(result);
     } else {
         res.status(500).json({ message: 'somthing wrong' })
     }
