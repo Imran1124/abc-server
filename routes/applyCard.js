@@ -104,6 +104,16 @@ router.get('/read/:id', async (req, res) => {
     } else {
         res.status(500).json({ message: 'somthing wrong' })
     }
-})
+});
+
+router.get('/cardlist/', async (req, res) => {
+
+    const result = await applyCard.find({});
+    if (result) {
+        res.status(200).json(result);
+    } else {
+        res.status(500).json({ message: 'somthing wrong' })
+    }
+});
 
 module.exports = router;
