@@ -108,8 +108,23 @@ router.get('/read/:id', async (req, res) => {
 
 router.get('/cardlist/', async (req, res) => {
 
-    const result = await applyCard.find({});
-    // const { _id, name, email, mobileno, dateofbirth, gender } = result[0];
+    const result = await applyCard.aggregate(
+        [
+            {
+                "$project": {
+                    "_id": 1.0,
+                    "name": 1.0,
+                    "email": 1.0,
+                    "mobileno": 1.0,
+                    "gender": 1.0,
+                    "dateofbirth": 1.0
+                }
+            }
+        ],
+        {
+            "allowDiskUse": false
+        }
+    );
     if (result) {
         res.status(200).json(result);
     } else {
